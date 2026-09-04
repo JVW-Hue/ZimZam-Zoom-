@@ -254,6 +254,239 @@
             66% { transform: translate(-20px, 20px); }
         }
 
+        /* About Section */
+        .about {
+            padding: 100px 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ff00ff, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-text p {
+            color: #888;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .about-visual {
+            flex: 1;
+            min-width: 300px;
+            height: 350px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(255,0,255,0.1), rgba(0,255,255,0.1));
+            border: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-visual .ring {
+            width: 200px;
+            height: 200px;
+            border: 3px solid rgba(255,0,255,0.3);
+            border-radius: 50%;
+            position: absolute;
+            animation: spinSlow 10s linear infinite;
+        }
+
+        .about-visual .ring:nth-child(2) {
+            width: 160px;
+            height: 160px;
+            border-color: rgba(0,255,255,0.3);
+            animation-direction: reverse;
+            animation-duration: 8s;
+        }
+
+        .about-visual .ring:nth-child(3) {
+            width: 120px;
+            height: 120px;
+            border-color: rgba(138,43,226,0.3);
+            animation-duration: 6s;
+        }
+
+        .about-visual .center-dot {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #ff00ff, #00ffff);
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 0 0 40px rgba(255,0,255,0.5);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 40px rgba(255,0,255,0.5); }
+            50% { transform: scale(1.3); box-shadow: 0 0 80px rgba(255,0,255,0.8); }
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 50px;
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(180deg, transparent, rgba(0, 255, 255, 0.03), transparent);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 35px 30px;
+            position: relative;
+            transition: all 0.4s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 255, 255, 0.3);
+            box-shadow: 0 15px 40px rgba(0, 255, 255, 0.1);
+        }
+
+        .testimonial-card .quote {
+            font-size: 3rem;
+            color: rgba(255, 0, 255, 0.2);
+            font-family: serif;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-card p {
+            color: #999;
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-card .author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .testimonial-card .avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .testimonial-card:nth-child(1) .avatar { background: linear-gradient(135deg, #ff00ff, #8a2be2); }
+        .testimonial-card:nth-child(2) .avatar { background: linear-gradient(135deg, #00ffff, #00ff88); }
+        .testimonial-card:nth-child(3) .avatar { background: linear-gradient(135deg, #ff6600, #ff00ff); }
+
+        .testimonial-card .author-info h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: #fff;
+        }
+
+        .testimonial-card .author-info span {
+            color: #555;
+            font-size: 0.8rem;
+        }
+
+        /* Team */
+        .team {
+            padding: 100px 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: all 0.4s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(138, 43, 226, 0.4);
+            box-shadow: 0 15px 40px rgba(138, 43, 226, 0.15);
+        }
+
+        .team-card .avatar-lg {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+        }
+
+        .team-card:nth-child(1) .avatar-lg { background: linear-gradient(135deg, #ff00ff33, #ff00ff11); border: 2px solid rgba(255,0,255,0.3); }
+        .team-card:nth-child(2) .avatar-lg { background: linear-gradient(135deg, #00ffff33, #00ffff11); border: 2px solid rgba(0,255,255,0.3); }
+        .team-card:nth-child(3) .avatar-lg { background: linear-gradient(135deg, #8a2be233, #8a2be211); border: 2px solid rgba(138,43,226,0.3); }
+        .team-card:nth-child(4) .avatar-lg { background: linear-gradient(135deg, #ff660033, #ff660011); border: 2px solid rgba(255,102,0,0.3); }
+
+        .team-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .team-card span {
+            color: #666;
+            font-size: 0.85rem;
+        }
+
         /* Features Section */
         .features {
             padding: 100px 50px;
@@ -593,8 +826,10 @@
         <div class="logo">JVW EMPIRE</div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="#features">Features</a></li>
             <li><a href="#showcase">Showcase</a></li>
+            <li><a href="#team">Team</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -609,6 +844,23 @@
         </h1>
         <p>Enter the next dimension of digital experience. Bold. Fast. Unstoppable.</p>
         <button class="cta-btn" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">Explore Now</button>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-content">
+            <div class="about-text reveal">
+                <h2>ABOUT US</h2>
+                <p>We are JVW Empire — a collective of dreamers, builders, and hustlers turning wild ideas into digital reality.</p>
+                <p>From sleek websites to full-stack apps, we craft experiences that hit different. No boring templates. No cookie-cutter solutions. Just raw, bold creativity.</p>
+                <p>We believe the future is built by those crazy enough to imagine it.</p>
+            </div>
+            <div class="about-visual reveal">
+                <div class="ring"></div>
+                <div class="ring"></div>
+                <div class="ring"></div>
+                <div class="center-dot"></div>
+            </div>
+        </div>
     </section>
 
     <section class="features" id="features">
@@ -691,6 +943,71 @@
                     <h3>Cipher Core</h3>
                     <p>End-to-end encrypted messaging with quantum-resistant protocols.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <h2 class="section-title reveal">WHAT PEOPLE SAY</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card reveal">
+                <div class="quote">"</div>
+                <p>JVW Empire completely transformed our online presence. The speed, the design, the vibe — everything is next level.</p>
+                <div class="author">
+                    <div class="avatar">A</div>
+                    <div class="author-info">
+                        <h4>Alex R.</h4>
+                        <span>Tech Startup Founder</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="quote">"</div>
+                <p>Working with them felt like having a creative partner, not just a dev team. They actually get it.</p>
+                <div class="author">
+                    <div class="avatar">M</div>
+                    <div class="author-info">
+                        <h4>Mia K.</h4>
+                        <span>Digital Artist</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="quote">"</div>
+                <p>Fast, reliable, and they actually care about the result. Not just checking boxes. 10/10 would recommend.</p>
+                <div class="author">
+                    <div class="avatar">D</div>
+                    <div class="author-info">
+                        <h4>Dante W.</h4>
+                        <span>E-commerce Owner</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team" id="team">
+        <h2 class="section-title reveal">THE CREW</h2>
+        <div class="team-grid">
+            <div class="team-card reveal">
+                <div class="avatar-lg">👤</div>
+                <h3>The Visionary</h3>
+                <span>Strategy & Direction</span>
+            </div>
+            <div class="team-card reveal">
+                <div class="avatar-lg">💻</div>
+                <h3>The Coder</h3>
+                <span>Engineering & Tech</span>
+            </div>
+            <div class="team-card reveal">
+                <div class="avatar-lg">🎨</div>
+                <h3>The Designer</h3>
+                <span>UI/UX & Visuals</span>
+            </div>
+            <div class="team-card reveal">
+                <div class="avatar-lg">📈</div>
+                <h3>The Hustler</h3>
+                <span>Growth & Marketing</span>
             </div>
         </div>
     </section>
