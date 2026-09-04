@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="7foB6x-GpFPCfxaRDIrX7tzB5OjZpSUPDx9VdskT0jw" />
+    <title>Contact Us - JVW Empire</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: #0a0a0f;
+            color: #ccc;
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+
+        .stars { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+        .star { position: absolute; background: #fff; border-radius: 50%; animation: twinkle 3s infinite alternate; }
+        @keyframes twinkle { 0% { opacity: 0.2; } 100% { opacity: 1; } }
+
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 20px 50px;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 100; background: rgba(10,10,15,0.8); backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(138,43,226,0.3);
+        }
+        .logo {
+            font-family: 'Orbitron', sans-serif; font-size: 1.8rem; font-weight: 900;
+            background: linear-gradient(135deg, #ff00ff, #00ffff, #ff00ff);
+            background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s ease infinite; text-decoration: none;
+        }
+        @keyframes gradientShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { color: #ccc; text-decoration: none; font-size: 1rem; font-weight: 500; transition: all 0.3s; position: relative; }
+        .nav-links a:hover { color: #ff00ff; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, #ff00ff, #00ffff); transition: width 0.3s; }
+        .nav-links a:hover::after { width: 100%; }
+
+        .page-hero {
+            min-height: 45vh; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; padding: 120px 20px 60px; position: relative; z-index: 1;
+        }
+        .page-hero h1 {
+            font-family: 'Orbitron', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900;
+            background: linear-gradient(135deg, #ff00ff, #00ffff);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px;
+        }
+        .page-hero p { color: #666; font-size: 1.1rem; }
+
+        .contact-body {
+            max-width: 900px; margin: 0 auto; padding: 40px 30px 100px; position: relative; z-index: 1;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;
+        }
+
+        .contact-info h2 {
+            font-family: 'Orbitron', sans-serif; font-size: 1.5rem; margin-bottom: 20px;
+            background: linear-gradient(135deg, #ff00ff, #00ffff);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .contact-info p { color: #999; margin-bottom: 25px; font-size: 1.05rem; }
+
+        .info-item {
+            display: flex; align-items: flex-start; gap: 15px; margin-bottom: 25px;
+        }
+        .info-item .icon-circle {
+            width: 45px; height: 45px; border-radius: 50%; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+        }
+        .info-item:nth-child(2) .icon-circle { background: linear-gradient(135deg, #ff00ff33, #ff00ff11); border: 1px solid rgba(255,0,255,0.3); }
+        .info-item:nth-child(3) .icon-circle { background: linear-gradient(135deg, #00ffff33, #00ffff11); border: 1px solid rgba(0,255,255,0.3); }
+        .info-item:nth-child(4) .icon-circle { background: linear-gradient(135deg, #8a2be233, #8a2be211); border: 1px solid rgba(138,43,226,0.3); }
+        .info-item h4 { font-family: 'Orbitron', sans-serif; font-size: 0.9rem; color: #fff; margin-bottom: 3px; }
+        .info-item span { color: #777; font-size: 0.95rem; }
+
+        .contact-form {
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px; padding: 35px 30px;
+        }
+        .contact-form h2 {
+            font-family: 'Orbitron', sans-serif; font-size: 1.3rem; margin-bottom: 20px; color: #fff;
+        }
+        .form-group { margin-bottom: 18px; }
+        .form-group label {
+            display: block; font-size: 0.85rem; color: #666; text-transform: uppercase;
+            letter-spacing: 2px; margin-bottom: 8px; font-family: 'Orbitron', sans-serif;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 14px 18px; border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px; background: rgba(255,255,255,0.05); color: #fff;
+            font-family: 'Rajdhani', sans-serif; font-size: 1rem; outline: none; transition: border-color 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus { border-color: #ff00ff; }
+        .form-group input::placeholder, .form-group textarea::placeholder { color: #444; }
+        .form-group textarea { min-height: 120px; resize: vertical; }
+
+        .submit-btn {
+            width: 100%; padding: 14px; border: none; border-radius: 12px;
+            background: linear-gradient(135deg, #ff00ff, #8a2be2); color: #fff;
+            font-family: 'Orbitron', sans-serif; font-size: 0.9rem; font-weight: 700;
+            cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(255,0,255,0.3); }
+
+        .form-msg { margin-top: 15px; text-align: center; font-size: 0.95rem; display: none; }
+
+        .social-links {
+            margin-top: 30px; display: flex; gap: 12px;
+        }
+        .social-links a {
+            width: 45px; height: 45px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.1);
+            display: flex; align-items: center; justify-content: center; color: #888;
+            text-decoration: none; font-size: 1.2rem; transition: all 0.3s;
+        }
+        .social-links a:hover { border-color: #ff00ff; color: #ff00ff; transform: translateY(-3px); box-shadow: 0 5px 20px rgba(255,0,255,0.3); }
+
+        footer {
+            padding: 50px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);
+            position: relative; z-index: 1;
+        }
+        footer p { color: #444; font-size: 0.9rem; }
+        footer .socials { margin-top: 20px; display: flex; justify-content: center; gap: 20px; }
+        footer .socials a { width: 45px; height: 45px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: #888; text-decoration: none; font-size: 1.2rem; transition: all 0.3s; }
+        footer .socials a:hover { border-color: #ff00ff; color: #ff00ff; transform: translateY(-3px); }
+
+        .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.3; animation: float 8s ease-in-out infinite; }
+        .orb1 { width: 300px; height: 300px; background: #ff00ff; top: 5%; left: -5%; }
+        .orb2 { width: 250px; height: 250px; background: #00ffff; bottom: 20%; right: -5%; animation-delay: 3s; }
+        @keyframes float { 0%, 100% { transform: translate(0,0); } 33% { transform: translate(30px,-30px); } 66% { transform: translate(-20px,20px); } }
+
+        @media (max-width: 700px) {
+            .contact-body { grid-template-columns: 1fr; }
+            nav { padding: 15px 20px; }
+            .nav-links { gap: 15px; font-size: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stars" id="stars"></div>
+
+    <nav>
+        <a href="index.html" class="logo">JVW EMPIRE</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#showcase">Showcase</a></li>
+            <li><a href="privacy-policy.html">Privacy</a></li>
+            <li><a href="terms-of-service.html">Terms</a></li>
+            <li><a href="contact.html" style="color:#ff00ff;">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="page-hero">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <h1>CONTACT US</h1>
+        <p>Got something to say? We are all ears.</p>
+    </section>
+
+    <div class="contact-body">
+        <div class="contact-info">
+            <h2>Get In Touch</h2>
+            <p>Whether you have a question, a project idea, or just want to say hi — we would love to hear from you.</p>
+
+            <div class="info-item">
+                <div class="icon-circle">📧</div>
+                <div>
+                    <h4>Email</h4>
+                    <span>janovanwy553@gmail.com</span>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="icon-circle">💬</div>
+                <div>
+                    <h4>Discord</h4>
+                    <span>Join our community server</span>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="icon-circle">⏰</div>
+                <div>
+                    <h4>Response Time</h4>
+                    <span>Usually within 24 hours</span>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="#" title="Twitter">X</a>
+                <a href="#" title="Discord">D</a>
+                <a href="#" title="GitHub">G</a>
+                <a href="#" title="YouTube">Y</a>
+            </div>
+        </div>
+
+        <form class="contact-form" onsubmit="sendMessage(event)">
+            <h2>Send a Message</h2>
+            <div class="form-group">
+                <label>Your Name</label>
+                <input type="text" placeholder="John Doe" id="nameInput" required>
+            </div>
+            <div class="form-group">
+                <label>Your Email</label>
+                <input type="email" placeholder="john@email.com" id="emailInput" required>
+            </div>
+            <div class="form-group">
+                <label>Subject</label>
+                <input type="text" placeholder="What's this about?" id="subjectInput">
+            </div>
+            <div class="form-group">
+                <label>Message</label>
+                <textarea placeholder="Tell us what's on your mind..." id="messageInput" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+            <p class="form-msg" id="formMsg"></p>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 JVW Empire. All rights reserved. | <a href="privacy-policy.html" style="color:#ff00ff; text-decoration:none;">Privacy Policy</a> | <a href="terms-of-service.html" style="color:#00ffff; text-decoration:none;">Terms of Service</a></p>
+        <div class="socials">
+            <a href="#" title="Twitter">X</a>
+            <a href="#" title="Discord">D</a>
+            <a href="#" title="GitHub">G</a>
+            <a href="#" title="YouTube">Y</a>
+        </div>
+    </footer>
+
+    <script>
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            const size = Math.random() * 3 + 1;
+            star.style.width = size + 'px'; star.style.height = size + 'px';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            starsContainer.appendChild(star);
+        }
+
+        function sendMessage(e) {
+            e.preventDefault();
+            const msg = document.getElementById('formMsg');
+            msg.textContent = 'Message sent! We will get back to you soon.';
+            msg.style.color = '#00ff88';
+            msg.style.display = 'block';
+            document.getElementById('nameInput').value = '';
+            document.getElementById('emailInput').value = '';
+            document.getElementById('subjectInput').value = '';
+            document.getElementById('messageInput').value = '';
+        }
+    </script>
+</body>
+</html>
